@@ -1,0 +1,39 @@
+---
+title: "Uber Analysis"
+author: "Nathaniel Lao"
+date: "April 19, 2018"
+output: html_document
+---
+
+# Import Libraries
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(jsonlite)
+```
+
+# Importing Trip Data
+
+Importing data from _Uber Movement_ for all data in the Washington DC area: 2018 Quarter 1:
+
+```{r, eval=FALSE}
+# set file names
+data_hourly_filename <- "data/uber_dc2018q1_hourly.csv"
+data_weekly_filename <- "data/uber_dc2018q1_weekly.csv"
+data_monthly_filename <- "data/uber_dc2018q1_monthly.csv"
+dc_filename <- "data/washington_DC_censustracts.json"
+
+# pull data
+uber_hourly <- data_hourly_filename %>% read.csv()
+uber_weekly <- data_weekly_filename %>% read.csv()
+uber_monthly <- data_monthly_filename %>% read.csv()
+dc_json <- fromJSON(dc_filename, flatten = TRUE)
+
+uber_hourly
+uber_weekly
+uber_monthly
+dc_json
+```
+
